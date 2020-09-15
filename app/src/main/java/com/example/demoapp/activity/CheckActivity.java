@@ -1,7 +1,6 @@
 package com.example.demoapp.activity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.annotation.SuppressLint;
@@ -42,7 +41,7 @@ public class CheckActivity extends BaseActivity implements View.OnClickListener{
                 if (msg.what==1){
                     btnSend.setEnabled(true);
                     btnSend.setText("重新发送");
-                    btnSend.setBackgroundColor(ActivityCompat.getColor(CheckActivity.this, R.color.main_blue);
+                    btnSend.setBackgroundColor(ActivityCompat.getColor(CheckActivity.this, R.color.main_blue));
                     isSend=false;
                     count=60;
                 } else {
@@ -83,7 +82,22 @@ public class CheckActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void initEvent() {
+        etCode.setOnInputListener(new VerifyCodeEditText.OnInputListener() {
+            @Override
+            public void onComplete(String input) {
 
+            }
+
+            @Override
+            public void onChange(String input) {
+
+            }
+
+            @Override
+            public void onClear() {
+
+            }
+        });
     }
 
     @Override

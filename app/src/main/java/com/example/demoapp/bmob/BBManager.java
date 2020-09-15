@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 
 import cn.bmob.v3.BmobSMS;
 import cn.bmob.v3.listener.QueryListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 public class BBManager {
     public static BBManager bbManager;
@@ -20,5 +21,15 @@ public class BBManager {
     }
     public void sendCode(String phone, QueryListener<Integer> listener){
         BmobSMS.requestSMSCode(phone,"",listener);
+    }
+    /**
+     * * 验证验证码
+     *      *
+     *      * @param phone    手机号
+     *      * @param code     验证码
+     *      * @param listener 结果回调
+     */
+    public void checkPhoneCode(String phone, String code, UpdateListener listener){
+        BmobSMS.verifySmsCode(phone,code,listener);
     }
 }
